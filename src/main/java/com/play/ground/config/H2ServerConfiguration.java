@@ -1,4 +1,4 @@
-package com.example.lecturedemo.config;
+package com.play.ground.config;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.h2.tools.Server;
