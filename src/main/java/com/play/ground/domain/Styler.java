@@ -1,14 +1,18 @@
 
 package com.play.ground.domain;
 
-import com.play.ground.domain.common.EnqueueEntity;
-import com.play.ground.domain.common.EnqueueType;
+import com.play.ground.domain.common.SearchDataEnqueue;
+import com.play.ground.domain.common.SearchDataEnqueueType;
+import lombok.Data;
 
 import javax.persistence.*;
 
+
+@Data
+@SearchDataEnqueue(type = SearchDataEnqueueType.STYLER)
 @Entity
 @Table(name = "styler")
-public class Styler implements EnqueueEntity {
+public class Styler {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -16,10 +20,5 @@ public class Styler implements EnqueueEntity {
 
     public Long getId() {
         return id;
-    }
-
-    @Override
-    public EnqueueType getEvent() {
-        return EnqueueType.STYLER;
     }
 }

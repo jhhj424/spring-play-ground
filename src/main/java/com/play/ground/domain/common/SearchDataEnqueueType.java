@@ -1,5 +1,5 @@
 package com.play.ground.domain.common;
 
-public enum EnqueueType {
+public enum SearchDataEnqueueType {
     SHOP, STYLER, EXHIBITION
 }
