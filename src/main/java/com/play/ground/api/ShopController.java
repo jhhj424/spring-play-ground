@@ -1,33 +1,37 @@
 package com.play.ground.api;
 
 import com.play.ground.application.ShopService;
-import com.play.ground.domain.Shop;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 
-@Slf4j
 @RequiredArgsConstructor
+@RequestMapping("/api/shops")
 @RestController
 public class ShopController {
 
     private final ShopService shopService;
 
-    @GetMapping("/shop")
-    public List<Shop> findAll() {
-        return shopService.findAll();
+    @GetMapping
+    public ResponseEntity<List<ShopResponse>> findShops() {
+        List<ShopResponse> shops = shopService.findAll();
+        return ResponseEntity.ok()
+                .body(shops);
     }
 
-    @PostMapping("/shop")
-    public void create(@RequestBody Shop shop) {
-        log.info("ShopName: {}", shop.getName());
-        shopService.create(shop);
+    @PostMapping
+    public ResponseEntity<ShopResponse> create(@RequestBody ShopRequest shopRequest) {
+        ShopResponse shop = shopService.create(shopRequest);
+        return ResponseEntity.created(URI.create("/api/shops" + shop.getId()))
+                .body(shop);
     }
 
-    @PutMapping("/shop")
-    public void update(@RequestBody Shop shop) {
-        shopService.update(shop);
+    @PutMapping("/{shopId}")
+    public ResponseEntity<Void> update(@PathVariable Long shopId, @RequestBody ShopRequest shopRequest) {
+        shopService.update(shopId, shopRequest);
+        return ResponseEntity.ok().build();
     }
 }
