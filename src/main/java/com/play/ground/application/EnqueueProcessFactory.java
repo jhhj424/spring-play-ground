@@ -8,8 +8,8 @@ public class EnqueueProcessFactory {
         if (type == EnqueueProcessType.SHOP) {
             return new ShopEnqueueProcess();
         }
-        if (type == EnqueueProcessType.STYLER) {
-            return new StylerEnqueueProcess();
+        if (type == EnqueueProcessType.SHOP_BREAK_TIME) {
+            return new ShopBreakTimeEnqueueProcess();
         }
         if (type == EnqueueProcessType.EXHIBITION) {
             return new ExhibitionEnqueueProcess();

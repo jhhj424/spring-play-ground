@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ExhibitionEnqueueProcess implements EnqueueProcess {
     @Override
-    public long getShopId(long searchId) {
-        return 0;
+    public long getShopId(long exhibitionId) {
+        return 0; // exhibitionId 으로 조회
     }
 }
