@@ -3,7 +3,7 @@ package com.play.ground.domain.event;
 import com.play.ground.config.EnqueueEvent;
 import com.play.ground.config.EnqueueProcessType;
 import com.play.ground.domain.Shop;
-import com.play.ground.domain.common.ShopTargetQueue;
+import com.play.ground.domain.annotation.ShopTargetQueue;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.event.spi.PostUpdateEvent;

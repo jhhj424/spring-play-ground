@@ -1,8 +1,8 @@
 package com.play.ground.domain;
 
 import com.play.ground.config.EnqueueProcessType;
-import com.play.ground.domain.common.EnqueueTargetField;
-import com.play.ground.domain.common.ShopTargetQueue;
+import com.play.ground.domain.annotation.EnqueueTargetField;
+import com.play.ground.domain.annotation.ShopTargetQueue;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

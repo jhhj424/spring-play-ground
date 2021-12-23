@@ -17,5 +17,9 @@ public class EventHandler {
         log.info("==EventHandler==");
         log.info("event type: {}", event.getType());
         log.info("event searchId: {}", event.getSearchId());
+
+        EnqueueProcess enqueueProcess = EnqueueProcessFactory.create(event.getType());
+
+        ShopEnqueue.enqueue(enqueueProcess.getShopId(event.getSearchId()));
     }
 }
